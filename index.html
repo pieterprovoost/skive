@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body ng-controller="homeController">
+
+<div class="container" id="content">
+	<div class="row">
+
+		<div ng-repeat="album in albums">
+			<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 album">
+				<div class="wrapper">
+					<p><img class="cover" ng-click="play(album)" ng-src="{{album.location + '/' + album.cover}}" /></p>
+				</div>
+				<p class="caption"><span class="artist">{{album.deezer.artist.name}}</span>
+				<br/><span class="title">{{album.deezer.title}}</span></p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container trackinfo" ng-click="pause()">
+		<span ng-if="track">{{album.deezer.artist.name}} - {{album.deezer.title}} - {{track.title}} ({{track.duration | secondsToDateTime | date:'m:ss'}})</span>
+	</div>
+</footer>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

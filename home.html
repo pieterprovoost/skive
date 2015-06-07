@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+
+		<div class=" col-sm-6 col-md-3 col-lg-3" ng-repeat="album in albums">
+			<p><img class="cover" ng-click="play(album)" ng-src="{{album.location + '/' + album.cover}}" /></p>
+			<p class="caption"><span class="artist">{{album.deezer.artist.name}}</span>
+			<br/><span class="title">{{album.deezer.title}}</span></p>
+		</div>
+
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<p class="text-muted">Place sticky footer content here.</p>
+	</div>
+</footer>
